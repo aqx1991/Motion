@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@mipmap/login_bg"
+            android:paddingTop="@dimen/spacing_normal">
+
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/slidingTabLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/item_height"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/margin_edge"
+                android:background="@color/transparency"
+                tl:tl_indicator_color="@color/layout_bg"
+                tl:tl_indicator_style="TRIANGLE"
+                tl:tl_textsize="@dimen/textsize_5" />
+
+        </RelativeLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:overScrollMode="never" />
+
+        <Button
+            android:id="@+id/btLogin"
+            style="@style/Commit_Button_Style"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/btn_green_selector"
+            android:text="登录" />
+
+        <Button
+            android:id="@+id/btReg"
+            style="@style/Commit_Button_Style"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/btn_green_box_selector"
+            android:text="注册"
+            android:textColor="@color/basecolor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginLeft="@dimen/margin_edge_20"
+        android:layout_marginRight="@dimen/margin_edge_20"
+        android:layout_marginBottom="@dimen/margin_edge_20"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/margin_edge"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@color/basecolorShallow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_edge"
+                android:layout_marginRight="@dimen/item_edge"
+                android:text="第三方登录"
+                android:textColor="@color/basecolorShallow"
+                android:textSize="@dimen/textsize_3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@color/basecolorShallow" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/wcLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparency"
+                android:src="@mipmap/icon_wc" />
+
+            <ImageButton
+                android:id="@+id/qqLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:background="@color/transparency"
+                android:src="@mipmap/icon_qq" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

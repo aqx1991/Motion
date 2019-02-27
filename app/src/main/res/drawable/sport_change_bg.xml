@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!--渐变色-->
+    <!-- angle -设置角度-->
+    <gradient
+        android:angle="90"
+        android:centerColor="@color/center_sport_bg"
+        android:endColor="@color/sport_bg"
+        android:startColor="@color/end_sport_bg"
+        android:type="linear" />
+</shape>

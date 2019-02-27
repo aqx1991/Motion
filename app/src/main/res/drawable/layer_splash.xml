@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 整体的背景颜色 -->
+    <item>
+        <color android:color="@color/layout_bg" />
+    </item>
+    <!-- 顶部 -->
+    <!--<item>-->
+        <!--<bitmap-->
+            <!--android:gravity="top|center_horizontal"-->
+            <!--android:scaleType="center"-->
+            <!--android:src="@mipmap/start_t" />-->
+    <!--</item>-->
+
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/start" />
+    </item>
+
+    <!-- 底部 -->
+    <!--<item>-->
+        <!--<bitmap-->
+            <!--android:gravity="bottom|center_horizontal"-->
+            <!--android:scaleType="center"-->
+            <!--android:src="@mipmap/start_b" />-->
+    <!--</item>-->
+</layer-list>

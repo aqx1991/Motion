@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_bg">
+
+    <ImageView
+        android:id="@+id/im_url"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_bg"
+        android:scaleType="centerCrop" />
+
+    <com.james.motion.ui.weight.CountDownProgressView
+        android:id="@+id/countdownProgressView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginRight="10dp"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/versions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:shadowColor="@color/basecolorDeep"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:textColor="@color/basecolor"
+        android:textSize="@dimen/textsize_4"
+        android:visibility="invisible" />
+</RelativeLayout>

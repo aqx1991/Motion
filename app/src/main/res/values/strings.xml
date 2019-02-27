@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Motion</string>
+
+    <string name="splash_appversionname">Android V%1$s</string>
+
+    <string name="psd_digits">0123456789qwertyuiopasdfghjklzxcvbnmZXCVBNMLKJHGFDSAQWERTYUIOP</string>
+
+    <string name="chronometer_time">(%s)重新获取</string>
+
+    <string name="date_month_day">%1$s月%2$s日</string>
+    <string name="date_year_month_day">%1$s-%2$s-%3$s</string>
+    <string name="time_hour_minuts">%1$s:%2$s</string>
+
+    <string-array name="chinese_week_string_array">
+        <item>周日</item>
+        <item>周一</item>
+        <item>周二</item>
+        <item>周三</item>
+        <item>周四</item>
+        <item>周五</item>
+        <item>周六</item>
+    </string-array>
+</resources>

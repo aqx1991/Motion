@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+def cfg = rootProject.ext.configuration
+
+android {
+
+    compileSdkVersion cfg.compileVersion
+
+    compileOptions {
+        sourceCompatibility cfg.java_version
+        targetCompatibility cfg.java_version
+    }
+
+    defaultConfig {
+        applicationId cfg.package
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
+        versionCode cfg.version_code
+        versionName cfg.version_name
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // dex突破65535的限制
+        multiDexEnabled true
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "DEBUG_MODE", "false"
+        }
+        debug {
+            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "DEBUG_MODE", "true"
+        }
+    }
+
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs = ['libs']
+//        }
+//    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:' + cfg.support_version
+    implementation 'com.android.support:design:' + cfg.support_version
+    implementation 'com.android.support:cardview-v7:' + cfg.support_version
+    implementation 'com.android.support:recyclerview-v7:' + cfg.support_version
+    implementation 'com.android.support:support-v4:' + cfg.support_version
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //日历控件
+    implementation 'com.haibin:calendarview:3.5.4'
+
+    //butterknife
+    api 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // RecycleVierw-Adapter
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42'
+
+    //自定义TabLayout
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
+    //沉浸式
+    implementation 'com.gyf.immersionbar:immersionbar:2.3.3-beta15'
+
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //强大的工具类
+    implementation('com.blankj:utilcode:1.21.0') {
+        exclude group: 'com.blankj', module: 'bus'
+    }
+
+    // 内存泄漏检测
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    // Optional, if you use support library fragments:
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="@dimen/margin_edge_20"
+            android:layout_marginTop="@dimen/margin_edge_20"
+            android:layout_marginRight="@dimen/margin_edge_20">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/icon_user" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/item_edge"
+                android:layout_toEndOf="@+id/imageView"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:hint="请输入手机号码"
+                android:inputType="phone"
+                android:lines="1"
+                android:maxLength="11"
+                android:textColor="@color/text_color_2"
+                android:textColorHint="@color/text_color_3"
+                android:textSize="@dimen/textsize_4" />
+
+            <ImageButton
+                android:id="@+id/btClear"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@color/transparency"
+                android:src="@mipmap/icon_et_del"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="@dimen/margin_edge_20"
+            android:layout_marginTop="@dimen/margin_edge"
+            android:layout_marginRight="@dimen/margin_edge_20"
+            android:layout_marginBottom="@dimen/margin_edge_20">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/icon_code" />
+
+            <EditText
+                android:id="@+id/et_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/item_edge"
+                android:layout_toStartOf="@+id/chronometer"
+                android:layout_toEndOf="@+id/imageView3"
+                android:digits="@string/psd_digits"
+                android:gravity="center_vertical"
+                android:hint="请输入验证码"
+                android:maxLength="8"
+                android:textColor="@color/text_color_2"
+                android:textColorHint="@color/text_color_3"
+                android:textSize="@dimen/textsize_4" />
+
+            <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/item_edge"
+                android:paddingEnd="@dimen/margin_edge"
+                android:text="获取验证码"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/textsize_4" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

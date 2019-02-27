@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--自定义进度条-->
+    <style name="customProgressDialog" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparency</item>
+    </style>
+
+    <!--提交按钮-->
+    <style name="Commit_Button_Style" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_marginLeft">@dimen/margin_edge_20</item>
+        <item name="android:layout_marginRight">@dimen/margin_edge_20</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:background">@drawable/btn_nor_bg</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/textsize_8</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--提交按钮-->
+    <style name="Commit_Hide_Button_Style" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_marginLeft">@dimen/item_edge</item>
+        <item name="android:layout_marginRight">@dimen/item_edge</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:background">@drawable/btn_gray_bg</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/textsize_8</item>
+        <item name="android:gravity">center</item>
+        <item name="android:enabled">false</item>
+    </style>
+
+    <style name="matchDialog" parent="@android:style/Theme.Holo.Dialog.NoActionBar.MinWidth">
+        <!--<item name="android:windowIsFloating">false</item>-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:backgroundDimEnabled">true</item><!--模糊-->
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:windowBackground">@color/transparency</item>
+    </style>
+</resources>

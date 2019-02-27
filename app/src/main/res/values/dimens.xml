@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--字体-->
+    <dimen name="title">18sp</dimen>
+    <dimen name="textsize_0">10sp</dimen>
+    <dimen name="textsize_1">11sp</dimen>
+    <dimen name="textsize_2">12sp</dimen>
+    <dimen name="textsize_3">13sp</dimen>
+    <dimen name="textsize_4">14sp</dimen>
+    <dimen name="textsize_5">15sp</dimen>
+    <dimen name="textsize_6">16sp</dimen>
+    <dimen name="textsize_7">17sp</dimen>
+    <dimen name="textsize_8">18sp</dimen>
+
+    <!--高度-->
+    <dimen name="title_height">49dp</dimen>
+    <dimen name="cut_line_height">0.7dp</dimen>
+    <dimen name="button_height">45dp</dimen>
+    <dimen name="item_height">48dp</dimen>
+
+    <!--边距-->
+    <dimen name="cardPicRadius">4dp</dimen>
+    <dimen name="cardElevation">0.5dp</dimen>
+    <dimen name="margin_edge">15dp</dimen>
+    <dimen name="margin_edge_20">20dp</dimen>
+    <dimen name="item_edge">10dp</dimen>
+    <dimen name="lineSpacingExtra">3dp</dimen>
+    <dimen name="line">1dp</dimen>
+    <dimen name="spacing_normal">0dp</dimen>
+    <dimen name="spacing_3dp">3dp</dimen>
+
+</resources>

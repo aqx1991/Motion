@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_bg">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/basecolor"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_normal"
+            android:background="@color/basecolor" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_height">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxLength="12"
+                android:text=""
+                android:textColor="@color/text_color_white"
+                android:textSize="@dimen/title" />
+
+            <RelativeLayout
+                android:id="@+id/reRight"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/back_selector">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/item_edge"
+                    android:layout_marginRight="@dimen/item_edge"
+                    android:src="@mipmap/icon_sport" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_month_day"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_edge"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_color_1"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/tv_month_day"
+                android:orientation="vertical"
+                android:paddingLeft="6dp"
+                android:paddingTop="12dp"
+                android:paddingRight="6dp"
+                android:paddingBottom="12dp">
+
+                <TextView
+                    android:id="@+id/tv_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/textsize_0" />
+
+                <TextView
+                    android:id="@+id/tv_lunar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/textsize_0" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_current"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/margin_edge"
+                android:background="@drawable/bg_ripple">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/ic_calendar"
+                    android:tint="#000000" />
+
+                <TextView
+                    android:id="@+id/tv_current_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/textsize_2" />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <com.haibin.calendarview.CalendarLayout
+            android:id="@+id/calendarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/layout_bg"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            app:calendar_content_view_id="@+id/scrollView">
+
+            <com.haibin.calendarview.CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fcfcfc"
+                app:calendar_padding="@dimen/item_edge"
+                app:current_month_lunar_text_color="#CFCFCF"
+                app:current_month_text_color="@color/text_color_1"
+                app:max_year="2025"
+                app:min_year="2010"
+                app:month_view="com.james.motion.ui.weight.calendarview.custom.CustomMonthView"
+                app:month_view_show_mode="mode_fix"
+                app:other_month_lunar_text_color="#e1e1e1"
+                app:other_month_text_color="#e1e1e1"
+                app:scheme_text="运动"
+                app:scheme_text_color="@color/text_color_1"
+                app:scheme_theme_color="#128c4b"
+                app:selected_lunar_text_color="@color/text_color_white"
+                app:selected_text_color="@color/text_color_white"
+                app:selected_theme_color="@color/basecolor"
+                app:week_background="@color/white"
+                app:week_start_with="sun"
+                app:week_text_color="@color/text_color_2"
+                app:week_view="com.james.motion.ui.weight.calendarview.custom.CustomWeekView"
+                app:year_view="com.james.motion.ui.weight.calendarview.custom.CustomYearView"
+                app:year_view_day_text_color="@color/text_color_1"
+                app:year_view_day_text_size="7sp"
+                app:year_view_month_text_color="@color/text_color_red"
+                app:year_view_month_text_size="20sp"
+                app:year_view_scheme_color="@color/text_color_yellow"
+                app:year_view_select_text_color="@color/text_color_white"
+                app:year_view_week_height="12dp"
+                app:year_view_week_text_color="#e1e1e1"
+                app:year_view_week_text_size="6sp" />
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/layout_bg"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/sport_achievement"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/item_edge"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@color/white"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/margin_edge"
+                            android:text="跑步成绩"
+                            android:textColor="@color/text_color_1"
+                            android:textSize="@dimen/textsize_6" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/margin_edge"
+                        android:text="运动建议"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/textsize_6" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="@dimen/lineSpacingExtra"
+                        android:paddingLeft="@dimen/margin_edge"
+                        android:paddingRight="@dimen/margin_edge"
+                        android:paddingBottom="@dimen/margin_edge_20"
+                        android:text="刚开始不要追求跑步速度和距离,一坚持更久为目的吧!"
+                        android:textColor="@color/text_color_2"
+                        android:textSize="@dimen/textsize_4" />
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </com.haibin.calendarview.CalendarLayout>
+    </LinearLayout>
+</RelativeLayout>
