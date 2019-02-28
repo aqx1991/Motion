@@ -11,20 +11,19 @@ Android端记录跑步运动轨迹数据的App
   代码简易，欢迎来指点交流！
   
 首页运动日历
-![Image text](https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E9%A6%96%E9%A1%B5.jpg)
 <img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E9%A6%96%E9%A1%B5.jpg"/>
 
 开始运动
-![Image text](https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E5%80%92%E8%AE%A1%E6%97%B6.jpg)
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E5%80%92%E8%AE%A1%E6%97%B6.jpg"/>
 
 地图模式
-![Image text](https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8-%E5%9C%B0%E5%9B%BE%E6%A8%A1%E5%BC%8F.jpg)
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8-%E5%9C%B0%E5%9B%BE%E6%A8%A1%E5%BC%8F.jpg"/>
 
 跑步模式
-![Image text](https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8-%E8%B7%91%E6%AD%A5%E6%A8%A1%E5%BC%8F.jpg)
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8-%E8%B7%91%E6%AD%A5%E6%A8%A1%E5%BC%8F.jpg"/>
 
 运动结果
-![Image text](https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E7%BB%93%E6%9E%9C.jpg)
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E7%BB%93%E6%9E%9C.jpg"/>
 
 运动结果
-![Image text](https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E8%AE%B0%E5%BD%95.jpg)
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E8%AE%B0%E5%BD%95.jpg"/>
