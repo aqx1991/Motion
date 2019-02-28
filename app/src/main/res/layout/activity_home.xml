@@ -21,6 +21,22 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_height">
 
+            <RelativeLayout
+                android:id="@+id/reBack"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/back_selector">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/item_edge"
+                    android:layout_marginRight="@dimen/item_edge"
+                    android:src="@mipmap/icon_back_white" />
+            </RelativeLayout>
+
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"

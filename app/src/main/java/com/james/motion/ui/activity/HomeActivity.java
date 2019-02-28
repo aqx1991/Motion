@@ -1,11 +1,13 @@
 package com.james.motion.ui.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,6 +24,7 @@ import com.james.motion.commmon.utils.DateUtils;
 import com.james.motion.commmon.utils.LogUtils;
 import com.james.motion.commmon.utils.MySp;
 import com.james.motion.commmon.utils.UIHelper;
+import com.james.motion.commmon.utils.Utils;
 import com.james.motion.db.DataManager;
 import com.james.motion.db.RealmHelper;
 import com.james.motion.sport_motion.MotionUtils;
@@ -66,6 +69,8 @@ public class HomeActivity extends BaseActivity {
     CalendarLayout mCalendarLayout;
     @BindView(R.id.sport_achievement)
     LinearLayout sport_achievement;
+
+    private Dialog tipDialog = null;
 
     private int mYear;
 
@@ -223,7 +228,7 @@ public class HomeActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.fl_current, R.id.tv_month_day, R.id.reRight})
+    @OnClick({R.id.fl_current, R.id.tv_month_day, R.id.reRight, R.id.reBack})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.fl_current:
@@ -242,9 +247,26 @@ public class HomeActivity extends BaseActivity {
             case R.id.reRight:
                 startActivityForResult(new Intent(HomeActivity.this, SportsActivity.class), SPORT);
                 break;
+            case R.id.reBack:
+                showTipDialog("退出登录",
+                        "退出登录后将会删除历史数据,\n下次登录依然可以使用本账号!",
+                        () -> logOut());
+                break;
             default:
                 break;
         }
+    }
+
+    private void logOut() {
+        SPUtils.getInstance().put(MySp.ISLOGIN, false);
+
+        dataManager.deleteSportRecord();
+
+        MyApplication.exitActivity();
+        Utils.showToast(context, "退出登陆成功!");
+
+        Intent it = new Intent(context, LoginActivity.class);
+        context.startActivity(it);
     }
 
     @Override
@@ -255,6 +277,7 @@ public class HomeActivity extends BaseActivity {
                 if (backPressed - lastBackPressed > QUIT_INTERVAL) {
                     lastBackPressed = backPressed;
                     showToast("再按一次退出");
+                    return false;
                 } else {
                     moveTaskToBack(false);
                     MyApplication.closeApp(this);
@@ -308,5 +331,24 @@ public class HomeActivity extends BaseActivity {
             default:
                 break;
         }
+    }
+
+    private void showTipDialog(String title, String tips, TipCallBack tipCallBack) {
+        tipDialog = new Dialog(context, R.style.matchDialog);
+        View view = LayoutInflater.from(context).inflate(R.layout.tip_dialog_layout, null);
+        ((TextView) (view.findViewById(R.id.title))).setText(title);
+        ((TextView) (view.findViewById(R.id.tips))).setText(tips);
+        view.findViewById(R.id.cancelTV).setOnClickListener(
+                v -> tipDialog.dismiss());
+        view.findViewById(R.id.confirmTV).setOnClickListener(v -> {
+            tipCallBack.confirm();
+            tipDialog.dismiss();
+        });
+        tipDialog.setContentView(view);
+        tipDialog.show();
+    }
+
+    private interface TipCallBack {
+        void confirm();
     }
 }

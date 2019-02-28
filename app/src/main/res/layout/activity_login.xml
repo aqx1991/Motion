@@ -4,7 +4,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/layout_bg"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -26,8 +26,10 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/margin_edge"
                 android:background="@color/transparency"
-                tl:tl_indicator_color="@color/layout_bg"
+                tl:tl_indicator_color="@color/white"
                 tl:tl_indicator_style="TRIANGLE"
+                tl:tl_textSelectColor="@color/text_color_2"
+                tl:tl_textUnselectColor="@color/text_color_3"
                 tl:tl_textsize="@dimen/textsize_5" />
 
         </RelativeLayout>

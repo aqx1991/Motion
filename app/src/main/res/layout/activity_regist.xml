@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/reg_bg"
+    android:background="@mipmap/login_bg"
     android:focusable="true">
 
     <RelativeLayout
@@ -69,7 +69,6 @@
                     android:layout_marginRight="@dimen/item_edge"
                     android:layout_toStartOf="@+id/chronometer"
                     android:layout_toEndOf="@+id/iv_phoneIcon"
-                    android:background="@drawable/et_underline"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:hint="请输入手机号码"
@@ -81,9 +80,10 @@
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:textColor="@color/text_color_white"
-                    android:textColorHint="@color/text_color_4"
+                    android:textColorHint="@color/text_color_3"
                     android:textCursorDrawable="@drawable/bg_edittext"
                     android:textSize="@dimen/textsize_4" />
+                <!--android:background="@drawable/et_underline"-->
 
                 <Chronometer
                     android:id="@+id/chronometer"
@@ -122,7 +122,6 @@
                     android:layout_marginLeft="@dimen/item_edge"
                     android:layout_marginRight="@dimen/item_edge"
                     android:layout_toEndOf="@+id/imageView2"
-                    android:background="@drawable/et_underline"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:hint="请输入验证码"
@@ -134,9 +133,10 @@
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:textColor="@color/text_color_white"
-                    android:textColorHint="@color/text_color_4"
+                    android:textColorHint="@color/text_color_3"
                     android:textCursorDrawable="@drawable/bg_edittext"
                     android:textSize="@dimen/textsize_4" />
+                <!--android:background="@drawable/et_underline"-->
 
             </RelativeLayout>
 
@@ -161,7 +161,6 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/item_edge"
                     android:layout_toRightOf="@+id/imageView1"
-                    android:background="@drawable/et_underline"
                     android:digits="@string/psd_digits"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
@@ -174,9 +173,11 @@
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:textColor="@color/text_color_white"
-                    android:textColorHint="@color/text_color_4"
+                    android:textColorHint="@color/text_color_3"
                     android:textCursorDrawable="@drawable/bg_edittext"
                     android:textSize="@dimen/textsize_4" />
+                <!--android:background="@drawable/et_underline"-->
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -200,7 +201,6 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/item_edge"
                     android:layout_toRightOf="@+id/imageView6"
-                    android:background="@drawable/et_underline"
                     android:digits="@string/psd_digits"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
@@ -212,9 +212,11 @@
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:textColor="@color/text_color_white"
-                    android:textColorHint="@color/text_color_4"
+                    android:textColorHint="@color/text_color_3"
                     android:textCursorDrawable="@drawable/bg_edittext"
                     android:textSize="@dimen/textsize_4" />
+                <!--android:background="@drawable/et_underline"-->
+
             </RelativeLayout>
 
             <Button
