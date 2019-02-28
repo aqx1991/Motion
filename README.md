@@ -12,6 +12,7 @@ Android端记录跑步运动轨迹数据的App
   
 首页运动日历
 ![Image text](https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E9%A6%96%E9%A1%B5.jpg)
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E9%A6%96%E9%A1%B5.jpg"/>
 
 开始运动
 ![Image text](https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E5%80%92%E8%AE%A1%E6%97%B6.jpg)
