@@ -8,7 +8,7 @@ Android端记录跑步运动轨迹数据的App
   
   界面参考IOS端YSRun（项目地址：https://github.com/moshuqi/YSRun ）
   
-  代码简易，欢迎来指点交流！
+  代码简易，欢迎来指点交流！觉得还可以，给个Star^_^
   
 首页运动日历
 <img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E9%A6%96%E9%A1%B5.jpg"/>
