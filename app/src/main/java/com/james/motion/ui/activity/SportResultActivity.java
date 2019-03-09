@@ -167,9 +167,9 @@ public class SportResultActivity extends BaseActivity {
                 pathRecord.setId(records.getId());
                 pathRecord.setDistance(records.getDistance());
                 pathRecord.setDuration(records.getDuration());
-                pathRecord.setPathline(MotionUtils.parseLocations(records.getPathLine()));
-                pathRecord.setStartpoint(MotionUtils.parseLocation(records.getStratPoint()));
-                pathRecord.setEndpoint(MotionUtils.parseLocation(records.getEndPoint()));
+                pathRecord.setPathline(MotionUtils.parseLatLngLocations(records.getPathLine()));
+                pathRecord.setStartpoint(MotionUtils.parseLatLngLocation(records.getStratPoint()));
+                pathRecord.setEndpoint(MotionUtils.parseLatLngLocation(records.getEndPoint()));
                 pathRecord.setStartTime(records.getmStartTime());
                 pathRecord.setEndTime(records.getmEndTime());
                 pathRecord.setCalorie(records.getCalorie());
@@ -213,17 +213,13 @@ public class SportResultActivity extends BaseActivity {
         }
 
         {
-            List<AMapLocation> recordList = pathRecord.getPathline();
-            AMapLocation startLoc = pathRecord.getStartpoint();
-            AMapLocation endLoc = pathRecord.getEndpoint();
-            if (recordList == null || startLoc == null || endLoc == null) {
+            List<LatLng> recordList = pathRecord.getPathline();
+            LatLng startLatLng = pathRecord.getStartpoint();
+            LatLng endLatLng = pathRecord.getEndpoint();
+            if (recordList == null || startLatLng == null || endLatLng == null) {
                 return;
             }
-            LatLng startLatLng = new LatLng(startLoc.getLatitude(),
-                    startLoc.getLongitude());
-            LatLng endLatLng = new LatLng(endLoc.getLatitude(),
-                    endLoc.getLongitude());
-            mOriginLatLngList = mpathSmoothTool.pathOptimize(MotionUtils.parseLatLngList(recordList));
+            mOriginLatLngList = mpathSmoothTool.pathOptimize(recordList);
             addOriginTrace(startLatLng, endLatLng, mOriginLatLngList);
         }
     }
@@ -317,8 +313,8 @@ public class SportResultActivity extends BaseActivity {
         if (mOriginLatLngList == null) {
             return b.build();
         }
-        for (int i = 0; i < mOriginLatLngList.size(); i++) {
-            b.include(mOriginLatLngList.get(i));
+        for (LatLng latLng : mOriginLatLngList) {
+            b.include(latLng);
         }
         return b.build();
     }

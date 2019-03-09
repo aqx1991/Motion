@@ -15,6 +15,7 @@ import java.util.List;
 */
 public class MotionUtils {
 
+
     /**
      * 将AMapLocation List 转为TraceLocation list
      *
@@ -94,6 +95,30 @@ public class MotionUtils {
         return location;
     }
 
+    public static LatLng parseLatLngLocation(String latLonStr) {
+        if (latLonStr == null || latLonStr.equals("") || latLonStr.equals("[]")) {
+            return null;
+        }
+        String[] loc = latLonStr.split(",");
+        LatLng location = null;
+        if (loc.length == 2) {
+            location = new LatLng(Double.parseDouble(loc[0]), Double.parseDouble(loc[1]));
+        }
+        return location;
+    }
+
+    public static ArrayList<LatLng> parseLatLngLocations(String latLonStr) {
+        ArrayList<LatLng> locations = new ArrayList<>();
+        String[] latLonStrs = latLonStr.split(";");
+        for (String latLonStr1 : latLonStrs) {
+            LatLng location = parseLatLngLocation(latLonStr1);
+            if (location != null) {
+                locations.add(location);
+            }
+        }
+        return locations;
+    }
+
     public static ArrayList<AMapLocation> parseLocations(String latLonStr) {
         ArrayList<AMapLocation> locations = new ArrayList<>();
         String[] latLonStrs = latLonStr.split(";");
@@ -106,6 +131,13 @@ public class MotionUtils {
         return locations;
     }
 
+    public static String amapLocationToString(LatLng location) {
+        StringBuffer locString = new StringBuffer();
+        locString.append(location.latitude).append(",");
+        locString.append(location.longitude);
+        return locString.toString();
+    }
+
     public static String amapLocationToString(AMapLocation location) {
         StringBuffer locString = new StringBuffer();
         locString.append(location.getLatitude()).append(",");
@@ -115,6 +147,22 @@ public class MotionUtils {
         locString.append(location.getSpeed()).append(",");
         locString.append(location.getBearing());
         return locString.toString();
+    }
+
+    public static String getLatLngPathLineString(List<LatLng> list) {
+        if (list == null || list.size() == 0) {
+            return "";
+        }
+        StringBuffer pathline = new StringBuffer();
+        for (int i = 0; i < list.size(); i++) {
+            LatLng location = list.get(i);
+            String locString = amapLocationToString(location);
+            pathline.append(locString).append(";");
+        }
+        String pathLineString = pathline.toString();
+        pathLineString = pathLineString.substring(0,
+                pathLineString.length() - 1);
+        return pathLineString;
     }
 
     public static String getPathLineString(List<AMapLocation> list) {

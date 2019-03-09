@@ -170,9 +170,9 @@ public class HomeActivity extends BaseActivity {
                     pathRecord.setId(record.getId());
                     pathRecord.setDistance(record.getDistance());
                     pathRecord.setDuration(record.getDuration());
-                    pathRecord.setPathline(MotionUtils.parseLocations(record.getPathLine()));
-                    pathRecord.setStartpoint(MotionUtils.parseLocation(record.getStratPoint()));
-                    pathRecord.setEndpoint(MotionUtils.parseLocation(record.getEndPoint()));
+                    pathRecord.setPathline(MotionUtils.parseLatLngLocations(record.getPathLine()));
+                    pathRecord.setStartpoint(MotionUtils.parseLatLngLocation(record.getStratPoint()));
+                    pathRecord.setEndpoint(MotionUtils.parseLatLngLocation(record.getEndPoint()));
                     pathRecord.setStartTime(record.getmStartTime());
                     pathRecord.setEndTime(record.getmEndTime());
                     pathRecord.setCalorie(record.getCalorie());

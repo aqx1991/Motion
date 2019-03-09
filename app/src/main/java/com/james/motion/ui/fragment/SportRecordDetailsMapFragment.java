@@ -157,17 +157,13 @@ public class SportRecordDetailsMapFragment extends BaseFragment {
      */
     private void setupRecord() {
         if (pathRecord != null) {
-            List<AMapLocation> recordList = pathRecord.getPathline();
-            AMapLocation startLoc = pathRecord.getStartpoint();
-            AMapLocation endLoc = pathRecord.getEndpoint();
-            if (recordList == null || startLoc == null || endLoc == null) {
+            List<LatLng> recordList = pathRecord.getPathline();
+            LatLng startLatLng = pathRecord.getStartpoint();
+            LatLng endLatLng = pathRecord.getEndpoint();
+            if (recordList == null || startLatLng == null || endLatLng == null) {
                 return;
             }
-            LatLng startLatLng = new LatLng(startLoc.getLatitude(),
-                    startLoc.getLongitude());
-            LatLng endLatLng = new LatLng(endLoc.getLatitude(),
-                    endLoc.getLongitude());
-            mOriginLatLngList = mpathSmoothTool.pathOptimize(MotionUtils.parseLatLngList(recordList));
+            mOriginLatLngList = mpathSmoothTool.pathOptimize(recordList);
             addOriginTrace(startLatLng, endLatLng, mOriginLatLngList);
         } else {
             showToast("获取运动轨迹失败!");

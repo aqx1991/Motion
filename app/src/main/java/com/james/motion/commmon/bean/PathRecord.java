@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.amap.api.location.AMapLocation;
+import com.amap.api.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +17,11 @@ public class PathRecord implements Parcelable {
     //主键
     private Long id;
     //运动开始点
-    private AMapLocation mStartPoint;
+    private LatLng mStartPoint;
     //运动结束点
-    private AMapLocation mEndPoint;
+    private LatLng mEndPoint;
     //运动轨迹
-    private List<AMapLocation> mPathLinePoints = new ArrayList<>();
+    private List<LatLng> mPathLinePoints = new ArrayList<>();
     //运动距离
     private Double mDistance;
     //运动时长
@@ -50,28 +51,27 @@ public class PathRecord implements Parcelable {
         this.id = id;
     }
 
-
-    public AMapLocation getStartpoint() {
+    public LatLng getStartpoint() {
         return mStartPoint;
     }
 
-    public void setStartpoint(AMapLocation startpoint) {
+    public void setStartpoint(LatLng startpoint) {
         this.mStartPoint = startpoint;
     }
 
-    public AMapLocation getEndpoint() {
+    public LatLng getEndpoint() {
         return mEndPoint;
     }
 
-    public void setEndpoint(AMapLocation endpoint) {
+    public void setEndpoint(LatLng endpoint) {
         this.mEndPoint = endpoint;
     }
 
-    public List<AMapLocation> getPathline() {
+    public List<LatLng> getPathline() {
         return mPathLinePoints;
     }
 
-    public void setPathline(List<AMapLocation> pathline) {
+    public void setPathline(List<LatLng> pathline) {
         this.mPathLinePoints = pathline;
     }
 
@@ -107,7 +107,7 @@ public class PathRecord implements Parcelable {
         this.mEndTime = mEndTime;
     }
 
-    public void addpoint(AMapLocation point) {
+    public void addpoint(LatLng point) {
         mPathLinePoints.add(point);
     }
 
@@ -177,7 +177,7 @@ public class PathRecord implements Parcelable {
         this.id = (Long) in.readValue(Long.class.getClassLoader());
         this.mStartPoint = in.readParcelable(AMapLocation.class.getClassLoader());
         this.mEndPoint = in.readParcelable(AMapLocation.class.getClassLoader());
-        this.mPathLinePoints = in.createTypedArrayList(AMapLocation.CREATOR);
+        this.mPathLinePoints = in.createTypedArrayList(LatLng.CREATOR);
         this.mDistance = (Double) in.readValue(Double.class.getClassLoader());
         this.mDuration = (Long) in.readValue(Long.class.getClassLoader());
         this.mStartTime = (Long) in.readValue(Long.class.getClassLoader());
