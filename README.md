@@ -10,6 +10,11 @@ Android端记录跑步运动轨迹数据的App
   
   代码简易，欢迎来指点交流！觉得还可以，给个Star^_^
   
+  2019.04.09更新：
+   1.修改定位方式，解决坐标偏移问题； 
+   2.修改轨迹绘制方式，轨迹平滑优化； 
+   3.修改轨迹数据格式，存取数据优化)
+  
 首页运动日历
 <img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E9%A6%96%E9%A1%B5.jpg"/>
 
