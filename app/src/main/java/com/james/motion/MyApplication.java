@@ -122,10 +122,10 @@ public class MyApplication extends Application {
 
     public static void closeApp(Context context) {
 
-        exitActivity();
-
         if (null != handler)
             handler.removeCallbacksAndMessages(null);
+
+        exitActivity();
 
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
