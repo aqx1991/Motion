@@ -23,12 +23,21 @@
 ### 开始运动
 <img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E5%80%92%E8%AE%A1%E6%97%B6.jpg"/>
 
+### 运动倒计时
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E5%80%92%E8%AE%A1%E6%97%B6.jpg"/>
+
 ### 地图模式
-<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8-%E5%9C%B0%E5%9B%BE%E6%A8%A1%E5%BC%8F.jpg"/>
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8-%E5%9C%B0%E5%9B%BE%E6%A8%A1%E5%BC%8F.png"/>
+
+### 地图模式-暂停
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8-%E5%9C%B0%E5%9B%BE%E6%A8%A1%E5%BC%8F_%E6%9A%82%E5%81%9C.png"/>
 
 ### 跑步模式
-<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8-%E8%B7%91%E6%AD%A5%E6%A8%A1%E5%BC%8F.jpg"/>
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8-%E8%B7%91%E6%AD%A5%E6%A8%A1%E5%BC%8F.png"/>
 
 ### 运动结果
-<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E7%BB%93%E6%9E%9C.jpg"/>
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E7%BB%93%E6%9E%9C.png"/>
+
+### 运动记录
+<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E8%AE%B0%E5%BD%95.png"/>
 
