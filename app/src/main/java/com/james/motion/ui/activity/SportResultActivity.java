@@ -325,7 +325,7 @@ public class SportResultActivity extends BaseActivity {
     private void systemShareTxt() {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "春风运动");
+        intent.putExtra(Intent.EXTRA_SUBJECT, UIHelper.getString(R.string.app_name) + "运动");
         intent.putExtra(Intent.EXTRA_TEXT, "我在" + UIHelper.getString(R.string.app_name) + "运动跑了" + decimalFormat.format(pathRecord.getDistance())
                 + "公里,运动了" + decimalFormat.format(pathRecord.getDuration() / 60) + "分钟!快来加入吧!");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

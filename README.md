@@ -32,5 +32,3 @@
 ### 运动结果
 <img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E7%BB%93%E6%9E%9C.jpg"/>
 
-### 运动结果
-<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E8%BF%90%E5%8A%A8%E8%AE%B0%E5%BD%95.jpg"/>
