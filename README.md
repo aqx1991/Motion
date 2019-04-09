@@ -9,6 +9,9 @@
   界面参考IOS端YSRun（项目地址：https://github.com/moshuqi/YSRun ）
   
   代码简易，欢迎来指点交流！觉得还可以，给个Star^_^
+  
+### 扫码下载APK
+<img width="60" height="60" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/apk_dl.png"/>
 
 ## 更新日志
 ### 2019.04.09更新：
@@ -18,7 +21,7 @@
   
 ## 界面预览
 ### 首页运动日历
-<img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E9%A6%96%E9%A1%B5.jpg"/>
+<img width="180" height="180" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E9%A6%96%E9%A1%B5.jpg"/>
 
 ### 开始运动
 <img width="365" height="640" src="https://github.com/aqx1991/Motion/blob/master/ScreenShot/%E5%BC%80%E5%A7%8B%E8%BF%90%E5%8A%A8.jpg"/>
