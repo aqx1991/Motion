@@ -48,7 +48,11 @@ public class RealmHelper implements DBHelper {
          * 如果对象存在，就更新该对象；反之，它会创建一个新的对象。
          */
         //同步操作：使用copyToRealmOrUpdate方法插入数据
-        sportRealm.executeTransaction(realm -> realm.copyToRealmOrUpdate(record));
+        sportRealm.executeTransaction(realm -> {
+            record.setId(generateNewPrimaryKey());
+            realm.copyToRealmOrUpdate(record);
+//            realm.insertOrUpdate(record);
+        });
 
         //异步操作，可添加监听
 //        sportRealm.executeTransactionAsync(realm -> {
@@ -175,4 +179,15 @@ public class RealmHelper implements DBHelper {
      *   isNull() & isNotNull()
      *    isEmpty()& isNotEmpty()
      */
+
+    //获取最大的PrimaryKey并加一,否则id不变，会覆盖已有记录
+    private long generateNewPrimaryKey() {
+        long primaryKey = 0;
+        RealmResults<SportMotionRecord> results = sportRealm.where(SportMotionRecord.class).findAll();
+        if (results != null && results.size() > 0) {
+            SportMotionRecord last = results.last();
+            primaryKey = last.getId() + 1;
+        }
+        return primaryKey;
+    }
 }
