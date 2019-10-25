@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--解决启动时白屏问题-->
+    <style name="Theme.Start" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowBackground">@drawable/layer_splash</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--<item name="android:windowDisablePreview">true</item>-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+    </style>
+</resources>

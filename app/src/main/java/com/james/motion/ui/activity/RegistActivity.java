@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.google.gson.Gson;
 import com.james.motion.R;
 import com.james.motion.commmon.bean.UserAccount;
@@ -96,11 +97,11 @@ public class RegistActivity extends BaseActivity {
             case R.id.chronometer:
                 String phone = etAccount.getText().toString();
                 if (TextUtils.isEmpty(phone)) {
-                    showToast("请输入11位手机号码");
+                    ToastUtils.showShort("请输入11位手机号码");
                     return;
                 }
                 if (!Utils.isMobile(phone)) {
-                    showToast("请输入正确的手机号码");
+                    ToastUtils.showShort("请输入正确的手机号码");
                     return;
                 }
 
@@ -110,22 +111,23 @@ public class RegistActivity extends BaseActivity {
                 yanZhengMa();
                 break;
             case R.id.bt_regist:
+                hideSoftKeyBoard();
                 if (TextUtils.isEmpty(etAccount.getText())) {
-                    showToast("请输入11位手机号码!");
+                    ToastUtils.showShort("请输入11位手机号码!");
                 } else if (!Utils.isMobile(etAccount.getText().toString())) {
-                    showToast("请输入正确的手机号码!");
+                    ToastUtils.showShort("请输入正确的手机号码!");
                 } else if (TextUtils.isEmpty(etCode.getText().toString())) {
-                    showToast("验证码不可以为空!");
+                    ToastUtils.showShort("验证码不可以为空!");
                 } else if (!TextUtils.equals(etCode.getText(), code)) {
-                    showToast("请输入正确的验证码!");
+                    ToastUtils.showShort("请输入正确的验证码!");
                 } else if (TextUtils.isEmpty(etPsd.getText().toString())) {
-                    showToast("密码不可以为空!");
+                    ToastUtils.showShort("密码不可以为空!");
                 } else if (etPsd.getText().length() < 6) {
-                    showToast("请输入大于六位数的密码!");
+                    ToastUtils.showShort("请输入大于六位数的密码!");
                 } else if (TextUtils.isEmpty(etCheckPsd.getText().toString())) {
-                    showToast("校验密码不可以为空!");
+                    ToastUtils.showShort("校验密码不可以为空!");
                 } else if (!TextUtils.equals(etPsd.getText(), etCheckPsd.getText())) {
-                    showToast("两次密码输入不一致，请检验!");
+                    ToastUtils.showShort("两次密码输入不一致，请检验!");
                 } else {
                     btRegist.setEnabled(false);
                     regist();
@@ -146,7 +148,7 @@ public class RegistActivity extends BaseActivity {
             int numcode = (int) ((Math.random() * 9 + 1) * 100000);
             code = numcode + "";
             yzmStart();
-            showToast("验证获取成功！");
+            ToastUtils.showShort("验证获取成功！");
             etCode.setText(code);
         }, Conn.Delayed);
     }
@@ -160,9 +162,9 @@ public class RegistActivity extends BaseActivity {
             dismissLoadingView();
             btRegist.setEnabled(true);
             if (dataManager.checkAccount(etAccount.getText().toString())) {
-                showToast("账号已存在！");
+                ToastUtils.showShort("账号已存在！");
             } else {
-                Utils.showToast(RegistActivity.this, "恭喜您,注册成功...");
+                ToastUtils.showShort("恭喜您,注册成功...");
                 UserAccount userAccount = new UserAccount();
                 userAccount.setAccount(etAccount.getText().toString());
                 userAccount.setPsd(etPsd.getText().toString());

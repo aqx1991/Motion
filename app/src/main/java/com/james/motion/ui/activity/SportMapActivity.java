@@ -33,6 +33,7 @@ import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.maps.model.Polyline;
 import com.amap.api.maps.model.PolylineOptions;
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.james.motion.R;
 import com.james.motion.commmon.bean.PathRecord;
 import com.james.motion.commmon.bean.SportMotionRecord;
@@ -41,7 +42,6 @@ import com.james.motion.commmon.utils.DateUtils;
 import com.james.motion.commmon.utils.LogUtils;
 import com.james.motion.commmon.utils.MySp;
 import com.james.motion.commmon.utils.UIHelper;
-import com.james.motion.commmon.utils.Utils;
 import com.james.motion.db.DataManager;
 import com.james.motion.db.RealmHelper;
 import com.james.motion.sport_motion.MotionUtils;
@@ -165,7 +165,7 @@ public class SportMapActivity extends BaseActivity {
 //            }
 //        }
 //    }
-    ;
+            ;
 
     private class MyRunnable implements Runnable {
         @Override
@@ -350,7 +350,7 @@ public class SportMapActivity extends BaseActivity {
                 if (null != record && null != record.getPathline() && !record.getPathline().isEmpty()) {
                     saveRecord();
                 } else {
-                    Utils.showToast(this, "没有记录到路径!");
+                    ToastUtils.showShort("没有记录到路径!");
                     finish();
                 }
                 break;
@@ -393,7 +393,7 @@ public class SportMapActivity extends BaseActivity {
     private void saveRecord() {
 
         showLoadingView(false);
-        showToast("正在保存运动数据!");
+        ToastUtils.showShort("正在保存运动数据!");
 
         try {
             SportMotionRecord sportMotionRecord = new SportMotionRecord();
@@ -820,7 +820,7 @@ public class SportMapActivity extends BaseActivity {
             if (keyCode == KeyEvent.KEYCODE_BACK) { // 表示按返回键 时的操作
                 //是否正在运动记录数据
                 if (ISSTARTUP) {
-                    showToast("退出请点击暂停按钮，结束运动!");
+                    ToastUtils.showShort("退出请点击暂停按钮，结束运动!");
                     return true;
 
                 }
@@ -850,7 +850,7 @@ public class SportMapActivity extends BaseActivity {
     public void onBackPressed() {
         //是否正在运动记录数据
         if (ISSTARTUP) {
-            showToast("退出请点击暂停按钮，在结束运动!");
+            ToastUtils.showShort("退出请点击暂停按钮，在结束运动!");
             return;
         }
         //是否有运动记录

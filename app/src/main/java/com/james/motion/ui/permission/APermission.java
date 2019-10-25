@@ -1,14 +1,14 @@
 package com.james.motion.ui.permission;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 
-import com.james.motion.MyApplication;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
+
+import com.blankj.utilcode.util.ToastUtils;
 import com.james.motion.commmon.utils.DeviceHelper;
 import com.james.motion.commmon.utils.LogUtils;
-import com.james.motion.commmon.utils.Utils;
 
 import java.util.Arrays;
 
@@ -102,9 +102,9 @@ public class APermission {
             boolean neverAsk = !PermissionUtil.shouldShowRequestPermissionRationale(builder.mActivity, permissions);
             if (!builder.permissionListener.onDenied(neverAsk)) {
                 if (neverAsk) {
-                    Utils.showToast(MyApplication.getInstance(), "权限缺失");
+                    ToastUtils.showShort("权限缺失");
                 } else {
-                    Utils.showToast(MyApplication.getInstance(), "权限缺失");
+                    ToastUtils.showShort("权限缺失");
                 }
             }
 

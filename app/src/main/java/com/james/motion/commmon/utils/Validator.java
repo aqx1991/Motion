@@ -1,7 +1,8 @@
 package com.james.motion.commmon.utils;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;

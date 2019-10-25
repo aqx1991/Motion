@@ -9,12 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.SPUtils;
-import com.gyf.barlibrary.ImmersionBar;
+import com.blankj.utilcode.util.ToastUtils;
+import com.gyf.immersionbar.ImmersionBar;
 import com.james.motion.MyApplication;
 import com.james.motion.R;
 import com.james.motion.commmon.utils.MySp;
 import com.james.motion.commmon.utils.UIHelper;
-import com.james.motion.commmon.utils.Utils;
 import com.james.motion.ui.BaseActivity;
 import com.james.motion.ui.permission.PermissionHelper;
 import com.james.motion.ui.permission.PermissionListener;
@@ -134,7 +134,7 @@ public class SplashActivity extends BaseActivity {
                 long backPressed = System.currentTimeMillis();
                 if (backPressed - lastBackPressed > QUIT_INTERVAL) {
                     lastBackPressed = backPressed;
-                    Utils.showToast(SplashActivity.this, "再按一次退出");
+                    ToastUtils.showShort("再按一次退出");
                 } else {
                     if (countDownProgressView != null) {
                         countDownProgressView.stop();

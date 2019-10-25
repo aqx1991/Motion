@@ -1,8 +1,6 @@
 package com.james.motion.commmon.utils;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.widget.Toast;
 
 import com.james.motion.MyApplication;
 
@@ -112,18 +110,6 @@ public class Utils {
         //\\d{3} 三位数字            123（第十五位奇数代表男，偶数代表女），15位身份证不含X
         //$结尾
         return IDNumber.matches(regularExpression);
-    }
-
-    /**
-     * @describe Toast提示
-     */
-    public static void showToast(Context context, String text) {
-        if (null == context || !Utils.isString(text))
-            return;
-        runOnUiThread(() -> {
-            Toast mToast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-            mToast.show();
-        });
     }
 
     /**

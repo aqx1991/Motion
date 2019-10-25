@@ -1,0 +1,70 @@
+ext {
+    //android开发版本配置
+    android = [
+            compileSdkVersion: 29,
+            buildToolsVersion: "29.0.2",
+            applicationId    : "com.james.motion",
+            minSdkVersion    : 19,
+            targetSdkVersion : 29,
+            versionCode      : 1,
+            versionName      : "1.0",
+            java_version     : JavaVersion.VERSION_1_8,
+    ]
+    //version配置
+    versions = [
+            "appcompat-version"         : "1.1.0",
+            "annotation-version"        : "1.1.0",
+            "recyclerview-version"      : "1.1.0-beta04",
+            "swiperefreshlayout-version": "1.0.0",
+            "cardview-version"          : "1.0.0",
+            "layout-version"            : "1.1.3",
+            "design-version"            : "1.1.0-alpha10",
+            "junit-version"             : "4.12",
+            "test_ext"                  : "1.1.1",
+            "test_espresso"             : "3.2.0",
+    ]
+    //support配置
+    support = [
+            'appcompat'                         : "androidx.appcompat:appcompat:${versions["appcompat-version"]}",
+            'annotation'                        : "androidx.annotation:annotation:${versions["annotation-version"]}",
+            'recyclerview'                      : "androidx.recyclerview:recyclerview:${versions["recyclerview-version"]}",
+            'swiperefreshlayout'                : "androidx.swiperefreshlayout:swiperefreshlayout:${versions["swiperefreshlayout-version"]}",
+            'cardview'                          : "androidx.cardview:cardview:${versions["cardview-version"]}",
+            'layout'                            : "androidx.constraintlayout:constraintlayout:${versions["layout-version"]}",
+            'design'                            : "com.google.android.material:material:${versions["design-version"]}",
+            'testImplementation'                : "junit:junit:${versions["junit-version"]}",
+            'androidtestimplementation_ext'     : "androidx.test.ext:junit:${versions["test_ext"]}",
+            'androidtestimplementation_espresso': "androidx.test.espresso:espresso-core:${versions["test_espresso"]}",
+    ]
+    //依赖第三方配置
+    dependencies = [
+            //json解析
+            "gson"                  : "com.google.code.gson:gson:2.8.5",
+            //butterknife
+            butterknife_api         : "com.jakewharton:butterknife:10.1.0",
+            annotationProcessor     : "com.jakewharton:butterknife-compiler:10.1.0",
+            //RecycleVierw-Adapter
+            recyclevierw_adapter    : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47",
+            //utilcode
+            utilcode                : "com.blankj:utilcode:1.21.0",
+            //calendarview
+            calendarview            : "com.haibin:calendarview:3.5.4",
+            //沉浸式适配
+            immersionbar            : "com.gyf.immersionbar:immersionbar:3.0.0",
+            immersionbar_components : "com.gyf.immersionbar:immersionbar-components:3.0.0",
+            //FlycoTabLayout_Lib
+            flycotablayout_lib      : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+
+            //地图
+            Map_3D                  : "com.amap.api:3dmap:latest.integration",
+            Map_search              : "com.amap.api:search:latest.integration",
+            Map_location            : "com.amap.api:location:latest.integration",
+
+            // 内存泄漏检测
+            leakcanary_debug        : "com.squareup.leakcanary:leakcanary-android:1.6.3",
+            leakcanary_release      : "com.squareup.leakcanary:leakcanary-android-no-op:1.6.3",
+            leakcanary_debug_fragmen: "com.squareup.leakcanary:leakcanary-support-fragment:1.6.3",
+    ]
+}
+
+

@@ -6,8 +6,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.NonNull;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -27,6 +28,7 @@ import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.maps.model.Polyline;
 import com.amap.api.maps.model.PolylineOptions;
+import com.blankj.utilcode.util.ToastUtils;
 import com.james.motion.R;
 import com.james.motion.commmon.bean.PathRecord;
 import com.james.motion.commmon.utils.LogUtils;
@@ -166,7 +168,7 @@ public class SportRecordDetailsMapFragment extends BaseFragment {
             mOriginLatLngList = mpathSmoothTool.pathOptimize(recordList);
             addOriginTrace(startLatLng, endLatLng, mOriginLatLngList);
         } else {
-            showToast("获取运动轨迹失败!");
+            ToastUtils.showShort("获取运动轨迹失败!");
         }
     }
 

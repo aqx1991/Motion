@@ -1,5 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+apply from: "config.gradle"
 buildscript {
     repositories {
         google()
@@ -7,7 +7,7 @@ buildscript {
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.1'
+        classpath 'com.android.tools.build:gradle:3.5.1'
         classpath "io.realm:realm-gradle-plugin:5.9.1"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -26,15 +26,3 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-ext {
-    configuration = [
-            package                     : "com.james.motion",
-            compileVersion              : 28,
-            minSdk                      : 18,
-            targetSdk                   : 28,
-            version_code                : 1,
-            version_name                : "1.0",
-            support_version             : "28.+",
-            java_version                : JavaVersion.VERSION_1_8,
-    ]
-}

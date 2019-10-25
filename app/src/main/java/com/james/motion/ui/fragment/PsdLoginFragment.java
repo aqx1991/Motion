@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.james.motion.R;
 import com.james.motion.commmon.utils.MySp;
 import com.james.motion.ui.BaseFragment;
@@ -76,7 +77,7 @@ public class PsdLoginFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.btPsd:
                 if (TextUtils.isEmpty(etPsd.getText())) {
-                    showToast("请先输入密码!");
+                    ToastUtils.showShort("请先输入密码!");
                     return;
                 }
                 if (!iscleartext) {
@@ -93,7 +94,7 @@ public class PsdLoginFragment extends BaseFragment {
                 etUsername.setText("");
                 break;
             case R.id.tvForget:
-                showToast("功能开发中...");
+                ToastUtils.showShort("功能开发中...");
                 break;
             default:
                 break;
@@ -105,7 +106,7 @@ public class PsdLoginFragment extends BaseFragment {
             String account = etUsername.getText().toString();
             String psd = etPsd.getText().toString();
             if (psd.length() < 4) {
-                showToast("请输入正确的密码!");
+                ToastUtils.showShort("请输入正确的密码!");
             } else {
                 callBack.getResult(account, psd);
             }
@@ -120,7 +121,7 @@ public class PsdLoginFragment extends BaseFragment {
     private boolean isInput(EditText... e) {
         for (EditText anE : e) {
             if (TextUtils.isEmpty(anE.getText())) {
-                showToast(anE.getHint().toString());
+                ToastUtils.showShort(anE.getHint().toString());
                 return false;
             }
         }

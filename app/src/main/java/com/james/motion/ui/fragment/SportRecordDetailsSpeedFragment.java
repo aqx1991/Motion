@@ -12,12 +12,12 @@ import java.text.DecimalFormat;
 
 import butterknife.BindView;
 
-/** 
+/**
  * 描述: 运动记录详情-配速
  * 作者: james
- * 日期: 2019/2/27 15:25 
+ * 日期: 2019/2/27 15:25
  * 类名: SportRecordDetailsSpeedFragment
-*/
+ */
 public class SportRecordDetailsSpeedFragment extends BaseFragment {
 
     @BindView(R.id.tvDistribution)

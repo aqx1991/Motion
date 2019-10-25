@@ -24,7 +24,7 @@
 #---------------------------------1.实体类---------------------------------
 
 -keep class com.james.motion.** { *; }
--ignorewarning
+-ignorewarnings
 #-------------------------------------------------------------------------
 
 #---------------------------------2.第三方包-------------------------------
@@ -83,7 +83,7 @@
 -dontusemixedcaseclassnames
 -dontskipnonpubliclibraryclasses
 -dontskipnonpubliclibraryclassmembers
--dontpreverify
+#-dontpreverify
 -verbose
 -printmapping proguardMapping.txt
 -optimizations !code/simplification/cast,!field/*,!class/merging/*
@@ -103,6 +103,14 @@
 -keep public class * extends android.view.View
 -keep public class com.android.vending.licensing.ILicensingService
 -keep class android.support.** {*;}
+
+-keep class com.google.android.material.** {*;}
+-keep class androidx.** {*;}
+-keep public class * extends androidx.**
+-keep interface androidx.** {*;}
+-dontwarn com.google.android.material.**
+-dontnote com.google.android.material.**
+-dontwarn androidx.**
 
 -keepclasseswithmembernames class * {
     native <methods>;

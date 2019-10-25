@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/layout_bg">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
 
         </RelativeLayout>
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 
     <LinearLayout
@@ -194,7 +194,7 @@
                 app:year_view_week_text_color="#e1e1e1"
                 app:year_view_week_text_size="6sp" />
 
-            <android.support.v4.widget.NestedScrollView
+            <androidx.core.widget.NestedScrollView
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -226,7 +226,7 @@
                             android:textColor="@color/text_color_1"
                             android:textSize="@dimen/textsize_6" />
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -257,7 +257,7 @@
                         android:textColor="@color/text_color_2"
                         android:textSize="@dimen/textsize_4" />
                 </LinearLayout>
-            </android.support.v4.widget.NestedScrollView>
+            </androidx.core.widget.NestedScrollView>
         </com.haibin.calendarview.CalendarLayout>
     </LinearLayout>
 </RelativeLayout>

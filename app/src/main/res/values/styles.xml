@@ -1,22 +1,18 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <!-- colorAccent 全局的获取焦点后的光标颜色 -->
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/layout_bg</item>
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
     </style>
 
-    <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="colorPrimary">@color/basecolor</item>
-        <item name="colorPrimaryDark">@color/basecolorDeep</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+    <style name="BaseAppTheme" parent="AppTheme">
+        <!--<item name="android:windowAnimationStyle">@style/   activityAnimation</item>-->
     </style>
 
     <!-- animation 样式 -->
@@ -28,10 +24,13 @@
     </style>
 
     <!--解决启动时白屏问题-->
-    <style name="Theme.Start" parent="NoActionBar">
+    <style name="Theme.Start" parent="AppTheme">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionBar">false</item>
         <item name="android:windowBackground">@drawable/layer_splash</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
         <!--<item name="android:windowDisablePreview">true</item>-->
         <!--<item name="android:windowIsTranslucent">true</item>-->
     </style>

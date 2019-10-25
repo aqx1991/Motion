@@ -3,22 +3,23 @@ package com.james.motion.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.james.motion.MyApplication;
 import com.james.motion.R;
 import com.james.motion.commmon.utils.Conn;
 import com.james.motion.commmon.utils.MySp;
-import com.james.motion.commmon.utils.Utils;
 import com.james.motion.db.DataManager;
 import com.james.motion.db.RealmHelper;
 import com.james.motion.ui.BaseActivity;
@@ -120,6 +121,7 @@ public class LoginActivity extends BaseActivity {
                 hideSoftKeyBoard();
                 break;
             case R.id.btLogin:
+                hideSoftKeyBoard();
                 if (isPsd) {
                     psdLoginFragment.checkAccount(this::login);
                 } else {
@@ -127,13 +129,12 @@ public class LoginActivity extends BaseActivity {
                 }
                 break;
             case R.id.btReg:
+                hideSoftKeyBoard();
                 startActivity(new Intent(LoginActivity.this, RegistActivity.class));
                 break;
             case R.id.qqLogin:
-                showToast("功能开发中....");
-                break;
             case R.id.wcLogin:
-                showToast("功能开发中....");
+                ToastUtils.showShort("功能开发中....");
                 break;
             default:
                 break;
@@ -153,12 +154,12 @@ public class LoginActivity extends BaseActivity {
                 if (dataManager.checkAccount(account, psd))
                     loginSuccess(account, psd);
                 else
-                    showToast("账号或密码错误!");
+                    ToastUtils.showShort("账号或密码错误!");
             } else {
                 if (dataManager.checkAccount(account))
                     loginSuccess(account, "");
                 else
-                    showToast("账号不存在!");
+                    ToastUtils.showShort("账号不存在!");
             }
         }, Conn.Delayed);
     }
@@ -172,7 +173,7 @@ public class LoginActivity extends BaseActivity {
         SPUtils.getInstance().put(MySp.PASSWORD, psd);
 
         startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-        Utils.showToast(LoginActivity.this, "恭喜您,登录成功...");
+        ToastUtils.showShort("恭喜您,登录成功...");
 
         finish();
     }
@@ -184,7 +185,7 @@ public class LoginActivity extends BaseActivity {
                 long backPressed = System.currentTimeMillis();
                 if (backPressed - lastBackPressed > QUIT_INTERVAL) {
                     lastBackPressed = backPressed;
-                    showToast("再按一次退出");
+                    ToastUtils.showShort("再按一次退出");
                 } else {
                     moveTaskToBack(false);
                     MyApplication.closeApp(this);

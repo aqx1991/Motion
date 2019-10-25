@@ -1,14 +1,14 @@
 package com.james.motion;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.multidex.MultiDex;
+
+import androidx.multidex.MultiDexApplication;
 
 import com.blankj.utilcode.util.Utils;
 import com.james.motion.commmon.utils.LogUtils;
@@ -51,7 +51,7 @@ import io.realm.Realm;
 //                  别人笑我忒疯癫，我笑自己命太贱；              //
 //                  不见满街漂亮妹，哪个归得程序员？              //
 ////////////////////////////////////////////////////////////////////
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
 
     public static boolean DEBUG_MODE = true;//是否是DEBUG模式
     private static MyApplication applicationContext;
@@ -65,24 +65,25 @@ public class MyApplication extends Application {
         DEBUG_MODE = BuildConfig.DEBUG_MODE;
         applicationContext = this;
 
-        //初始化数据库
-        Realm.init(getInstance());
-//        new SecureRandom().nextBytes(Utils.getRealmKey(key));
-
         //在子线程中完成其他初始化
         initApplication();
     }
 
     private void initApplication() {
-        getHandler().post(() -> {
-            Utils.init(getInstance());
+//        getHandler().post(() -> {
 
-            //内存泄漏检测放到最后执行
-            if (LeakCanary.isInAnalyzerProcess(getInstance())) {
-                return;
-            }
-            LeakCanary.install(getInstance());
-        });
+        //初始化数据库
+        Realm.init(getInstance());
+//        new SecureRandom().nextBytes(Utils.getRealmKey(key));
+
+        Utils.init(getInstance());
+
+        //内存泄漏检测放到最后执行
+        if (LeakCanary.isInAnalyzerProcess(getInstance())) {
+            return;
+        }
+        LeakCanary.install(getInstance());
+//        });
     }
 
     public static MyApplication getInstance() {
@@ -168,12 +169,6 @@ public class MyApplication extends Application {
             LogUtils.e("VersionInfo Exception", e);
         }
         return versioncode;
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(getInstance());
     }
 
 }

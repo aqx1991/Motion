@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
@@ -25,13 +24,13 @@ import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.maps.model.Polyline;
 import com.amap.api.maps.model.PolylineOptions;
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.james.motion.R;
 import com.james.motion.commmon.bean.PathRecord;
 import com.james.motion.commmon.bean.SportMotionRecord;
 import com.james.motion.commmon.utils.LogUtils;
 import com.james.motion.commmon.utils.MySp;
 import com.james.motion.commmon.utils.UIHelper;
-import com.james.motion.commmon.utils.Utils;
 import com.james.motion.db.DataManager;
 import com.james.motion.db.RealmHelper;
 import com.james.motion.sport_motion.MotionUtils;
@@ -130,7 +129,7 @@ public class SportResultActivity extends BaseActivity {
         dataManager = new DataManager(new RealmHelper());
 
         if (!getIntent().hasExtra(SPORT_START) || !getIntent().hasExtra(SPORT_END)) {
-            Utils.showToast(this, "参数错误!");
+            ToastUtils.showShort("参数错误!");
             finish();
         }
 
@@ -180,11 +179,11 @@ public class SportResultActivity extends BaseActivity {
                 upDataUI();
             } else {
                 pathRecord = null;
-                showToast("获取运动数据失败!");
+                ToastUtils.showShort("获取运动数据失败!");
             }
         } catch (Exception e) {
             pathRecord = null;
-            showToast("获取运动数据失败!");
+            ToastUtils.showShort("获取运动数据失败!");
             LogUtils.e("获取运动数据失败", e);
         }
     }
@@ -248,14 +247,14 @@ public class SportResultActivity extends BaseActivity {
                 if (null != pathRecord) {
                     systemShareTxt();
                 } else {
-                    showToast("获取运动数据失败!");
+                    ToastUtils.showShort("获取运动数据失败!");
                 }
                 break;
             case R.id.ll_details:
                 if (null != pathRecord) {
                     SportRecordDetailsActivity.StartActivity(this, pathRecord);
                 } else {
-                    showToast("获取运动数据失败!");
+                    ToastUtils.showShort("获取运动数据失败!");
                 }
                 break;
             default:

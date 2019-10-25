@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/layout_bg">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -147,7 +147,7 @@
                 android:text="开始跑步" />
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"

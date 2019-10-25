@@ -9,14 +9,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
-import com.gyf.barlibrary.ImmersionBar;
+import androidx.annotation.Nullable;
+
+import com.gyf.immersionbar.ImmersionBar;
 import com.james.motion.MyApplication;
 import com.james.motion.ui.permission.PermissionActivity;
 import com.james.motion.commmon.utils.LogUtils;
@@ -39,7 +41,6 @@ public abstract class BaseActivity extends PermissionActivity {
     protected boolean isActive = true; //是否活跃
 
     private InputMethodManager imm;
-    private Toast mToast = null;
 
     private static final int DISMISS = 1001;
     private static final int SHOW = 1002;
@@ -82,21 +83,17 @@ public abstract class BaseActivity extends PermissionActivity {
 
         context = this;
 
-        ButterKnife.bind(this);
-
         MyApplication.addActivity(this);
-
-        initData(savedInstanceState);
-        initListener();
 
         //初始化沉浸式
         if (isImmersionBarEnabled())
             initImmersionBar();
 
-        mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
-
         progressDialog = new CustomProgressDialog(this);
         inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        initData(savedInstanceState);
+        initListener();
     }
 
     public abstract int getLayoutId();
@@ -105,6 +102,23 @@ public abstract class BaseActivity extends PermissionActivity {
 
     public abstract void initListener();
 
+    @Override
+    public void setContentView(View view) {
+        super.setContentView(view);
+        ButterKnife.bind(this);
+    }
+
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        ButterKnife.bind(this);
+    }
+
+    @Override
+    public void setContentView(View view, ViewGroup.LayoutParams params) {
+        super.setContentView(view, params);
+        ButterKnife.bind(this);
+    }
 
     /**
      * 是否可以使用沉浸式
@@ -136,9 +150,6 @@ public abstract class BaseActivity extends PermissionActivity {
         super.onDestroy();
 
         this.imm = null;
-        if (isImmersionBarEnabled()) {
-            ImmersionBar.with(this).destroy();
-        }
 
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
@@ -186,9 +197,6 @@ public abstract class BaseActivity extends PermissionActivity {
 //            ImmersionBar.with(this).init();
 //        }
 
-        if (mToast == null)
-            mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
-
         if (!isActive) {
             //app 从后台唤醒，进入前台
             isActive = true;
@@ -196,24 +204,9 @@ public abstract class BaseActivity extends PermissionActivity {
         }
     }
 
-    public void showToast(String s) {
-        if (!Utils.isString(s))
-            return;
-        if (mToast != null) {
-            mToast.cancel();
-            mToast = null;
-        }
-        mToast = Toast.makeText(context, s, Toast.LENGTH_SHORT);
-        mToast.show();
-    }
-
     @Override
     public void onPause() {
 
-        if (mToast != null) {
-            mToast.cancel();
-            mToast = null;
-        }
         hideSoftKeyBoard();
 
         super.onPause();

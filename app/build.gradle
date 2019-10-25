@@ -1,26 +1,32 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
-def cfg = rootProject.ext.configuration
 
 android {
 
-    compileSdkVersion cfg.compileVersion
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     compileOptions {
-        sourceCompatibility cfg.java_version
-        targetCompatibility cfg.java_version
+        sourceCompatibility rootProject.ext.android.java_version
+        targetCompatibility rootProject.ext.android.java_version
     }
 
     defaultConfig {
-        applicationId cfg.package
-        minSdkVersion cfg.minSdk
-        targetSdkVersion cfg.targetSdk
-        versionCode cfg.version_code
-        versionName cfg.version_name
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // dex突破65535的限制
         multiDexEnabled true
+
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters 'armeabi', 'armeabi-v7a', 'x86'
+            // 还可以添加 , 'x86_64', 'mips', 'mips64', 'arm64-v8a', "arm64-v8a"
+        }
 
     }
     buildTypes {
@@ -36,52 +42,63 @@ android {
         }
     }
 
-//    sourceSets {
-//        main {
-//            jniLibs.srcDirs = ['libs']
-//        }
-//    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:' + cfg.support_version
-    implementation 'com.android.support:design:' + cfg.support_version
-    implementation 'com.android.support:cardview-v7:' + cfg.support_version
-    implementation 'com.android.support:recyclerview-v7:' + cfg.support_version
-    implementation 'com.android.support:support-v4:' + cfg.support_version
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation rootProject.ext.support["appcompat"]
+    implementation rootProject.ext.support["design"]
+    implementation rootProject.ext.support["recyclerview"]
+    implementation rootProject.ext.support["cardview"]
+    implementation rootProject.ext.support["layout"]
+    testImplementation rootProject.ext.support["testImplementation"]
+    androidTestImplementation rootProject.ext.support["androidtestimplementation_ext"]
+    androidTestImplementation rootProject.ext.support["androidtestimplementation_espresso"]
 
     //日历控件
-    implementation 'com.haibin:calendarview:3.5.4'
+    implementation rootProject.ext.dependencies["calendarview"]
 
     //butterknife
-    api 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation rootProject.ext.dependencies["butterknife_api"]
+    annotationProcessor rootProject.ext.dependencies["annotationProcessor"]
 
     // RecycleVierw-Adapter
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42'
+    implementation rootProject.ext.dependencies["recyclevierw_adapter"]
 
     //自定义TabLayout
-    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    implementation rootProject.ext.dependencies["flycotablayout_lib"]
 
     //沉浸式
-    implementation 'com.gyf.immersionbar:immersionbar:2.3.3-beta15'
+    implementation rootProject.ext.dependencies["immersionbar"]
+    implementation rootProject.ext.dependencies["immersionbar_components"]
 
     //gson
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation rootProject.ext.dependencies["gson"]
 
-    //强大的工具类
-    implementation('com.blankj:utilcode:1.21.0') {
+    //utilcode
+    implementation(rootProject.ext.dependencies["utilcode"]) {
         exclude group: 'com.blankj', module: 'bus'
     }
 
+    //3D地图
+    implementation rootProject.ext.dependencies["Map_3D"]
+    //搜索功能
+    implementation rootProject.ext.dependencies["Map_search"]
+    //定位SDK
+    implementation rootProject.ext.dependencies["Map_location"]
+
     // 内存泄漏检测
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    debugImplementation rootProject.ext.dependencies["leakcanary_debug"]
+    releaseImplementation rootProject.ext.dependencies["leakcanary_release"]
     // Optional, if you use support library fragments:
-    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+    debugImplementation rootProject.ext.dependencies["leakcanary_debug_fragmen"]
 }

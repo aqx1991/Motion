@@ -4,15 +4,17 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
@@ -30,7 +32,6 @@ import com.james.motion.db.RealmHelper;
 import com.james.motion.sport_motion.MotionUtils;
 import com.james.motion.ui.BaseActivity;
 import com.james.motion.ui.adapter.SportCalendarAdapter;
-import com.james.motion.ui.weight.FullyLinearLayoutManager;
 import com.james.motion.ui.weight.calendarview.custom.CustomWeekBar;
 
 import java.util.ArrayList;
@@ -99,7 +100,7 @@ public class HomeActivity extends BaseActivity {
         mTextLunar.setText("今日");
         mTextCurrentDay.setText(String.valueOf(mCalendarView.getCurDay()));
 
-        mRecyclerView.setLayoutManager(new FullyLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false) {
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
             @Override
             public boolean canScrollVertically() {
                 return false;
@@ -263,7 +264,7 @@ public class HomeActivity extends BaseActivity {
         dataManager.deleteSportRecord();
 
         MyApplication.exitActivity();
-        Utils.showToast(context, "退出登陆成功!");
+        ToastUtils.showShort("退出登陆成功!");
 
         Intent it = new Intent(context, LoginActivity.class);
         context.startActivity(it);
@@ -276,7 +277,7 @@ public class HomeActivity extends BaseActivity {
                 long backPressed = System.currentTimeMillis();
                 if (backPressed - lastBackPressed > QUIT_INTERVAL) {
                     lastBackPressed = backPressed;
-                    showToast("再按一次退出");
+                    ToastUtils.showShort("再按一次退出");
                     return false;
                 } else {
                     moveTaskToBack(false);

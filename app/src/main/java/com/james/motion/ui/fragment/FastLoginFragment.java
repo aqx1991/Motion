@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.james.motion.R;
 import com.james.motion.commmon.utils.Conn;
 import com.james.motion.commmon.utils.MySp;
@@ -98,11 +99,11 @@ public class FastLoginFragment extends BaseFragment {
             case R.id.chronometer:
                 String phone = etPhone.getText().toString();
                 if (TextUtils.isEmpty(phone)) {
-                    showToast("请输入11位手机号码");
+                    ToastUtils.showShort("请输入11位手机号码");
                     return;
                 }
                 if (!Utils.isMobile(phone)) {
-                    showToast("请输入正确的手机号码");
+                    ToastUtils.showShort("请输入正确的手机号码");
                     return;
                 }
                 // 先影藏输入法
@@ -140,7 +141,7 @@ public class FastLoginFragment extends BaseFragment {
             int numcode = (int) ((Math.random() * 9 + 1) * 100000);
             code = numcode + "";
             yzmStart();
-            showToast("验证获取成功！");
+            ToastUtils.showShort("验证获取成功！");
             etCode.setText(code);
         }, Conn.Delayed);
     }
@@ -151,9 +152,9 @@ public class FastLoginFragment extends BaseFragment {
                 String account = etPhone.getText().toString();
                 String codes = etCode.getText().toString();
                 if (!Utils.isMobile(account)) {
-                    showToast("请输入正确的手机号码");
+                    ToastUtils.showShort("请输入正确的手机号码");
                 } else if (!TextUtils.equals(codes, code)) {
-                    showToast("请输入正确的验证码!");
+                    ToastUtils.showShort("请输入正确的验证码!");
                 } else {
                     callBack.getResult(account, codes);
                 }
@@ -168,7 +169,7 @@ public class FastLoginFragment extends BaseFragment {
     private boolean isInput(EditText... e) {
         for (EditText anE : e) {
             if (TextUtils.isEmpty(anE.getText())) {
-                showToast(anE.getHint().toString());
+                ToastUtils.showShort(anE.getHint().toString());
                 return false;
             }
         }

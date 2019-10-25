@@ -3,19 +3,20 @@ package com.james.motion.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.blankj.utilcode.util.ToastUtils;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.james.motion.R;
 import com.james.motion.commmon.bean.PathRecord;
 import com.james.motion.commmon.bean.TabEntity;
-import com.james.motion.commmon.utils.Utils;
 import com.james.motion.ui.BaseActivity;
 import com.james.motion.ui.fragment.SportRecordDetailsFragment;
 import com.james.motion.ui.fragment.SportRecordDetailsMapFragment;
@@ -74,7 +75,7 @@ public class SportRecordDetailsActivity extends BaseActivity {
         if (getIntent().hasExtra(SPORT_DATA)) {
             pathRecord = getIntent().getParcelableExtra(SPORT_DATA);
         } else {
-            Utils.showToast(this, "参数错误!");
+            ToastUtils.showShort("参数错误!");
             finish();
         }
 

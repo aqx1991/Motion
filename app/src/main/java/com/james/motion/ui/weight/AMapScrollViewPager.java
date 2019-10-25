@@ -1,9 +1,10 @@
 package com.james.motion.ui.weight;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * 描述: 重写ViewPager canScroll方法，解决ViewPager和地图横向滑动冲突
